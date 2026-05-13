@@ -17,6 +17,9 @@ app:
     # Microfrontend
     microfrontend:
       enabled: true
+      entrySuffix: "mf-manifest.json"
+      spec:
+        shareScope: 'angular_21'
       specs:
         shell-toast:
           exposedModule: "./OneCXShellToastComponent"
