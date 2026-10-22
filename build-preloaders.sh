@@ -2,6 +2,11 @@
 
 echo "Started building preloaders (sequential)"
 
+# The webpack-based preloader builds (notably the Angular 20 path) run out of the default
+# Node heap and fail with "Ineffective mark-compacts near heap limit - out of memory".
+# Raise the heap before invoking Nx/webpack.
+export NODE_OPTIONS="${NODE_OPTIONS:-} --max-old-space-size=8192"
+
 STATUS1=0
 STATUS2=0
 STATUS3=0
